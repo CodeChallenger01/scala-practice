@@ -103,3 +103,59 @@ def name(first:String="",last:String=""):String=first+" "+last
 name("Manish","Mishra")
 
 
+
+//case class
+case class Test(input:String="")
+val name=Test("Manish")
+print(name.input)
+
+
+//Array
+
+val array=Array(1,2,3,4,5)
+for(i<-0 to array.length-1){
+  print(" "+i)
+}
+
+
+//Vector
+val s=Vector("Hello World")
+s.map(str=>str.split(" "))//Array[String]
+s.flatMap(str=>str.split(" "))//Vector[String]
+print(s)
+
+
+//for expression
+for{
+  n<-1 to 3
+  m<-1 to n
+}yield n*m
+
+
+
+//Inheritance
+class Animal{
+  def sound(): Unit = {
+    print("Hi bro Animal Class")
+  }
+}
+class Dog extends Animal{
+  override def sound(): Unit = {
+    print("Bark")
+  }
+  super.sound()
+}
+
+
+//Use trait for muliple inheritance
+trait Swimmer{
+  def  swim(): Unit = {
+    print("From Swimmer trait")
+  }
+}
+class Fish extends Animal with Swimmer{
+  override def swim(){
+    print("From Fish Class")
+  }
+}
+
