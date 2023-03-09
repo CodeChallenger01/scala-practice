@@ -1,10 +1,9 @@
-import java.util.InputMismatchException
 import scala.io.StdIn.readLine
 
 class ToggleString {
 
   //This method is used to convert uppercase to lowercase and vice versa
-  def toggleString(inputString: String): String = {
+  private def toggleString(inputString: String): String = {
     var afterToggleString:String=""
     for (index <- 0 until inputString.length) {
       val asciiValue: Int = inputString.charAt(index)
@@ -26,16 +25,16 @@ class ToggleString {
 }
 
 //singleton object
-object Main {
+object ToggleString {
   def main(args: Array[String]): Unit = {
     val obj = new ToggleString
     val inputString = readLine("Enter the String :")
     try {
       if (inputString.isEmpty)
-        throw new InputMismatchException()
+        throw new NullPointerException
     }
     catch {
-      case ex: InputMismatchException => {
+      case ex: NullPointerException => {
         print("Input by User is " + ex.getMessage)
       }
     }
