@@ -31,11 +31,12 @@ object Recursion extends App {
 
   //PRACTICE CODE
   // 1--> Concatenate a string using tail recursion
-  def concateString(name:String,num:Int,accumulator:String): String = {
-    if(num<=0) accumulator
-    else concateString(name,num-1,name.concat(accumulator))
+  def concateString(name: String, num: Int, accumulator: String): String = {
+    if (num <= 0) accumulator
+    else concateString(name, num - 1, name.concat(accumulator))
   }
-  println(concateString("Manish ",10,""))
+
+  println(concateString("Manish ", 10, ""))
 
   // 2-->isPrime using
   def isPrime(num: Int): Boolean = {
@@ -50,5 +51,17 @@ object Recursion extends App {
   println(isPrime(30))
 
   //3-->Fibonacci series
+  def fibonacci(n: Int): Int = {
+    def fibonacciTail(i: Int, last: Int, nextToLast: Int): Int = {
+      if (i >= n) last
+      else fibonacciTail(i + 1, last + nextToLast, last)
+    }
+
+    if (n <= 2) 1
+    else fibonacciTail(2, 1, 1)
+  }
+
+  println(fibonacci(8))
+
 }
 
